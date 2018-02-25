@@ -1,2 +1,5 @@
 # Task Manager
-### Final Project for COMP3000
+
+**Language:** Objective-C<br>
+**Tools:** Xcode<br>
+**Platform:** macOS High Sierra<br>
