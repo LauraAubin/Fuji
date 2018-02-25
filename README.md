@@ -1,2 +1,2 @@
-# COMP3000
-Exercises and Final Project
+# Task Manager
+### Final Project for COMP3000
