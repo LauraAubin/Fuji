@@ -22,5 +22,9 @@
     // Update the view, if already loaded.
 }
 
+- (IBAction)ChangeNiceValueButton:(id)sender {
+    setpriority(PRIO_PROCESS, 2335, 6);
+    printf("Setting priority of PID:2335 to 6\n");
+}
 
 @end

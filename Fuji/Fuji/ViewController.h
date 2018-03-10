@@ -8,7 +8,6 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ViewController : NSViewController
-
-
+- (IBAction)ChangeNiceValueButton:(id)sender;
 @end
 
