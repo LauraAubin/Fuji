@@ -19,6 +19,9 @@
     // NSWorkspace: can launch apps and handle file services. There is one shared workspace within the entire app.
     @property (weak, readonly) NSWorkspace *workspace;
 
+    // Sorts an array as part of arrangeObjects.
+    @property(weak, readonly) NSArray *sortDescriptors;
+
     @property (strong) IBOutlet NSArrayController *arrayOfRunningProcesses;
 @end
 
