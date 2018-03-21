@@ -14,4 +14,4 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 
 ## Implementation:
 
-_links to PR's or issues that outline major project steps_
+- [Major project steps](https://github.com/LauraAubin/Fuji/issues/4)
