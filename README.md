@@ -11,3 +11,7 @@ _link to demo or pictures_
 **Platform:** macOS High Sierra<br>
 
 See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active system calls and resources.
+
+## Implementation:
+
+_links to PR's or issues that outline major project steps_
