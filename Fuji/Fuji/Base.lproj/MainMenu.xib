@@ -708,7 +708,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="" width="477" minWidth="40" maxWidth="1000" id="9tc-K5-dZN">
+                                        <tableColumn identifier="" width="477" minWidth="40" maxWidth="1000" id="9tc-K5-dZN" userLabel="ProcessNamesColumn">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -720,6 +720,9 @@
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="x0J-dA-eD0" name="value" keyPath="arrangedObjects.ProcessNamesColumn" id="eHB-g0-RMd"/>
+                                            </connections>
                                         </tableColumn>
                                     </tableColumns>
                                 </tableView>
@@ -740,6 +743,7 @@
                     </scrollView>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="139" y="541"/>
         </window>
     </objects>
 </document>
