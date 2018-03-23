@@ -18,6 +18,8 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="7Pc-6j-3u3" customClass="ProcessController"/>
+        <arrayController id="x0J-dA-eD0"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="Fuji" id="1Xt-HY-uBw">
