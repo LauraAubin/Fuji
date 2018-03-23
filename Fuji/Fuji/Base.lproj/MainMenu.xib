@@ -725,6 +725,9 @@
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <outlet property="delegate" destination="7Pc-6j-3u3" id="SMV-ta-Cu6"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                         </clipView>
