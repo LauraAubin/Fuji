@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773A830F206203A0002BD2E9 /* ProcessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773A830E206203A0002BD2E9 /* ProcessController.m */; };
 		77E620BE205F519C00DBBFED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E620BD205F519C00DBBFED /* AppDelegate.m */; };
 		77E620C0205F519C00DBBFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E620BF205F519C00DBBFED /* Assets.xcassets */; };
 		77E620C3205F519C00DBBFED /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E620C1205F519C00DBBFED /* MainMenu.xib */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		773A830B2061FFB8002BD2E9 /* ProcessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessController.h; sourceTree = "<group>"; };
+		773A830E206203A0002BD2E9 /* ProcessController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProcessController.m; sourceTree = "<group>"; };
 		77E620B9205F519C00DBBFED /* Fuji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E620BC205F519C00DBBFED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77E620BD205F519C00DBBFED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				77E620C4205F519C00DBBFED /* Info.plist */,
 				77E620C5205F519C00DBBFED /* main.m */,
 				77E620C7205F519C00DBBFED /* Fuji.entitlements */,
+				773A830B2061FFB8002BD2E9 /* ProcessController.h */,
+				773A830E206203A0002BD2E9 /* ProcessController.m */,
 			);
 			path = Fuji;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77E620C6205F519C00DBBFED /* main.m in Sources */,
+				773A830F206203A0002BD2E9 /* ProcessController.m in Sources */,
 				77E620BE205F519C00DBBFED /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
