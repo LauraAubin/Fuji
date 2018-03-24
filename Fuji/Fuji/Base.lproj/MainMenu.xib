@@ -25,8 +25,8 @@
         </customObject>
         <arrayController id="x0J-dA-eD0">
             <connections>
-                <binding destination="7Pc-6j-3u3" name="contentArray" keyPath="workspace.runningapplication" id="P4F-lj-nk9"/>
-                <binding destination="7Pc-6j-3u3" name="contentArrayForMultipleSelection" keyPath="workspace.runningapplication" previousBinding="P4F-lj-nk9" id="vC8-0b-Y6c"/>
+                <binding destination="7Pc-6j-3u3" name="contentArray" keyPath="workspace.runningApplications" id="Eq9-gv-KF6"/>
+                <binding destination="7Pc-6j-3u3" name="contentArrayForMultipleSelection" keyPath="workspace.runningApplications" previousBinding="Eq9-gv-KF6" id="nIe-OR-UJG"/>
             </connections>
         </arrayController>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
@@ -713,7 +713,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="" width="477" minWidth="40" maxWidth="1000" id="9tc-K5-dZN" userLabel="ProcessNamesColumn">
+                                        <tableColumn identifier="" width="477" minWidth="40" maxWidth="1000" id="9tc-K5-dZN" userLabel="localizedName">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -724,10 +724,9 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="ProcessNamesColumn"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="x0J-dA-eD0" name="value" keyPath="arrangedObjects.ProcessNamesColumn" id="eHB-g0-RMd"/>
+                                                <binding destination="x0J-dA-eD0" name="value" keyPath="arrangedObjects.localizedName" id="pf7-vk-3gD"/>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
