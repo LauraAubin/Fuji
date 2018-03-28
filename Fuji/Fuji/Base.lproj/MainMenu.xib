@@ -767,7 +767,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="x0J-dA-eD0" name="value" keyPath="selection.processIdentifier" id="XhQ-jY-F7b"/>
+                            <binding destination="x0J-dA-eD0" name="value" keyPath="selection.selectedPID" id="7da-f6-uo2"/>
                         </connections>
                     </textField>
                 </subviews>

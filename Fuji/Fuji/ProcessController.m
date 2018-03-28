@@ -24,5 +24,10 @@
 @end
 
 @implementation NSRunningApplication (params)
+- (pid_t)selectedPID;
+{
+    printf("PROCESS %d\n", self.processIdentifier);
+    return self.processIdentifier;
+}
 @end
 
