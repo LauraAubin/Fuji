@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "ProcessController.h"
 #import <Cocoa/Cocoa.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 
 @implementation ProcessController
 
@@ -24,10 +26,22 @@
 @end
 
 @implementation NSRunningApplication (params)
-- (pid_t)selectedPID;
-{
-    printf("PROCESS %d\n", self.processIdentifier);
-    return self.processIdentifier;
-}
+
+    - (pid_t)selectedPID;
+    {
+        return self.processIdentifier;
+    }
+
+    - (int)selectedPriority;
+    {
+        int priority_level;
+        pid_t selected_PID;
+        
+        selected_PID = self.processIdentifier;
+        
+        priority_level = getpriority(PRIO_PROCESS, selected_PID);
+        
+        return priority_level;
+    }
 @end
 
