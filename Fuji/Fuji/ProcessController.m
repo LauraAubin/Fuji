@@ -32,16 +32,16 @@
         return self.processIdentifier;
     }
 
-    - (int)selectedPriority;
+    - (int)selectedNiceness;
     {
-        int priority_level;
+        int niceness_value;
         pid_t selected_PID;
         
         selected_PID = self.processIdentifier;
         
-        priority_level = getpriority(PRIO_PROCESS, selected_PID);
+        niceness_value = getpriority(PRIO_PROCESS, selected_PID);
         
-        return priority_level;
+        return niceness_value;
     }
 @end
 

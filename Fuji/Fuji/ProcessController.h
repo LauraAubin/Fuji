@@ -18,7 +18,7 @@
 
 @interface NSRunningApplication (params)
     @property (readonly) pid_t selectedPID;
-    @property (readonly) pid_t selectedPriority;
+    @property (readonly) pid_t selectedNiceness;
 @end
 
 #endif /* ProcessController_h */
