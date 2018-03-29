@@ -23,6 +23,7 @@
                 <outlet property="arrayOfRunningProcesses" destination="x0J-dA-eD0" id="tDK-xH-isU"/>
             </connections>
         </customObject>
+        <customObject id="Ce5-pz-z4z" customClass="ViewController"/>
         <arrayController id="x0J-dA-eD0">
             <connections>
                 <binding destination="7Pc-6j-3u3" name="contentArray" keyPath="workspace.runningApplications" id="Eq9-gv-KF6"/>
@@ -791,13 +792,16 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpT-2A-fAs">
-                        <rect key="frame" x="162" y="83" width="81" height="32"/>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FUG-w8-idJ">
+                        <rect key="frame" x="162" y="84" width="81" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="onF-Zc-jVk">
+                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="faZ-yu-oqY">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="ProcessButton:" target="Ce5-pz-z4z" id="pyl-tc-Gdd"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
