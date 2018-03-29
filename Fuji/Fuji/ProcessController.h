@@ -11,9 +11,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ProcessController : NSObject
-   @property (weak, readonly) NSWorkspace *workspace;
-   @property(weak, readonly) NSArray *sortDescriptors;
-   @property (strong) IBOutlet NSArrayController *arrayOfRunningProcesses;
+    @property (weak, readonly) NSWorkspace *workspace;
+    @property(weak, readonly) NSArray *sortDescriptors;
+    @property (strong) IBOutlet NSArrayController *arrayOfRunningProcesses;
 @end
 
 @interface NSRunningApplication (params)

@@ -16,7 +16,7 @@
     - (void)applicationDidBecomeActive:(NSNotification *)notification
     {
         [self.arrayOfRunningProcesses rearrangeObjects];
-//        NSLog(@"Array: %@", _arrayOfRunningProcesses);
+        //NSLog(@"Array: %@", _arrayOfRunningProcesses);
     }
 
     - (NSWorkspace *)workspace;
