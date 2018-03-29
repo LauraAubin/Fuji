@@ -23,7 +23,6 @@
                 <outlet property="arrayOfRunningProcesses" destination="x0J-dA-eD0" id="tDK-xH-isU"/>
             </connections>
         </customObject>
-        <customObject id="dBM-vF-wCm" userLabel="View Controller" customClass="ViewController"/>
         <arrayController id="x0J-dA-eD0">
             <connections>
                 <binding destination="7Pc-6j-3u3" name="contentArray" keyPath="workspace.runningApplications" id="Eq9-gv-KF6"/>
@@ -799,9 +798,6 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="ProcessButton:" target="dBM-vF-wCm" id="lfe-Wd-p57"/>
-                        </connections>
                     </button>
                 </subviews>
             </view>
