@@ -15,5 +15,9 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 ## Implementation:
 
 - [Major project steps](https://github.com/LauraAubin/Fuji/issues/4)
+
+The following are some pull requests that show how major tasks were completed:
+
 - [PR that outlines connecting a controller to the UI](https://github.com/LauraAubin/Fuji/pull/9)
 - [PR that uses instance methods](https://github.com/LauraAubin/Fuji/pull/12)
+- [PR that creates a button](https://github.com/LauraAubin/Fuji/pull/14)
