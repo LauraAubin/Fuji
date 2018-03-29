@@ -9,10 +9,7 @@
 #import "ViewController.h"
 
 @implementation ViewController
-- (IBAction)ProcessButton:(id)sender {
-}
-
-- (IBAction)ProcessButton:(id)sender {
+    - (IBAction)ProcessButton:(id)sender {
         printf("Button clicked\n");
     }
 @end
