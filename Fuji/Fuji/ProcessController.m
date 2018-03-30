@@ -11,6 +11,8 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 
+extern int CurrentlySelectedProcessID; // access the global variable declared in main
+
 @implementation ProcessController
 
     - (void)applicationDidBecomeActive:(NSNotification *)notification
@@ -29,6 +31,7 @@
 
     - (pid_t)selectedPID;
     {
+        CurrentlySelectedProcessID = self.processIdentifier;
         return self.processIdentifier;
     }
 

@@ -11,7 +11,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ViewController : NSViewController
-    - (IBAction)ProcessButton:(id)sender;
+    - (IBAction)increaseSelectedNI:(id)sender;
 @end
 
 #endif /* ViewController_h */

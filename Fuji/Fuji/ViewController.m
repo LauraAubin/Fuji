@@ -6,10 +6,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ProcessController.h"
 #import "ViewController.h"
+#import <Cocoa/Cocoa.h>
+
+extern int CurrentlySelectedProcessID;
 
 @implementation ViewController
-    - (IBAction)ProcessButton:(id)sender {
-        printf("Button clicked\n");
+    - (IBAction)increaseSelectedNI:(id)sender {
+        printf("Button clicked for %d\n", CurrentlySelectedProcessID);
+        
+        int currentlySelectedPriority = getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
+        int increasedPriority = currentlySelectedPriority + 1;
+        
+        setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, increasedPriority);
     }
 @end

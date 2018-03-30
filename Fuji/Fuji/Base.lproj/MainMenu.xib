@@ -800,7 +800,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="ProcessButton:" target="Ce5-pz-z4z" id="pyl-tc-Gdd"/>
+                            <action selector="increaseSelectedNI:" target="Ce5-pz-z4z" id="bnN-2D-pKB"/>
                         </connections>
                     </button>
                 </subviews>
