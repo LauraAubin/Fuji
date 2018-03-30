@@ -41,7 +41,6 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
         pid_t selected_PID;
         
         selected_PID = self.processIdentifier;
-        
         niceness_value = getpriority(PRIO_PROCESS, selected_PID);
         
         return niceness_value;
