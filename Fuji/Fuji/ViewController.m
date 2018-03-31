@@ -12,13 +12,21 @@
 
 extern int CurrentlySelectedProcessID;
 
+//@synthesize *currentProcessNiceness;
+
 @implementation ViewController
     - (IBAction)increaseSelectedNI:(id)sender {
-        printf("Button clicked for %d\n", CurrentlySelectedProcessID);
-        
-        int currentlySelectedPriority = getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
-        int increasedPriority = currentlySelectedPriority + 1;
+        int increasedPriority = [self getCurrentProcessPriority] + 1;
         
         setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, increasedPriority);
+        
+        // convert an int to a string
+        NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
+        
+        _increasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+    }
+
+    - (int)getCurrentProcessPriority; {
+        return getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
     }
 @end

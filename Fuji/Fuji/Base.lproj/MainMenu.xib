@@ -23,7 +23,11 @@
                 <outlet property="arrayOfRunningProcesses" destination="x0J-dA-eD0" id="tDK-xH-isU"/>
             </connections>
         </customObject>
-        <customObject id="Ce5-pz-z4z" customClass="ViewController"/>
+        <customObject id="Ce5-pz-z4z" customClass="ViewController">
+            <connections>
+                <outlet property="increasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="VQf-tB-qBz"/>
+            </connections>
+        </customObject>
         <arrayController id="x0J-dA-eD0">
             <connections>
                 <binding destination="7Pc-6j-3u3" name="contentArray" keyPath="workspace.runningApplications" id="Eq9-gv-KF6"/>

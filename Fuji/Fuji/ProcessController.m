@@ -18,7 +18,7 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
     - (void)applicationDidBecomeActive:(NSNotification *)notification
     {
         [self.arrayOfRunningProcesses rearrangeObjects];
-        //NSLog(@"Array: %@", _arrayOfRunningProcesses);
+//        NSLog(@"Array: %@", _arrayOfRunningProcesses);
     }
 
     - (NSWorkspace *)workspace;
@@ -28,8 +28,7 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
 @end
 
 @implementation NSRunningApplication (params)
-
-    - (pid_t)selectedPID;
+- (pid_t)selectedPID;
     {
         CurrentlySelectedProcessID = self.processIdentifier;
         return self.processIdentifier;
@@ -39,10 +38,10 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
     {
         int niceness_value;
         pid_t selected_PID;
-        
+
         selected_PID = self.processIdentifier;
         niceness_value = getpriority(PRIO_PROCESS, selected_PID);
-        
+
         return niceness_value;
     }
 @end
