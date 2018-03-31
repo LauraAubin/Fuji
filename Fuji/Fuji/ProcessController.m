@@ -11,12 +11,14 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 
+extern int CurrentlySelectedProcessID; // access the global variable declared in main
+
 @implementation ProcessController
 
     - (void)applicationDidBecomeActive:(NSNotification *)notification
     {
         [self.arrayOfRunningProcesses rearrangeObjects];
-        //NSLog(@"Array: %@", _arrayOfRunningProcesses);
+//        NSLog(@"Array: %@", _arrayOfRunningProcesses);
     }
 
     - (NSWorkspace *)workspace;
@@ -26,9 +28,9 @@
 @end
 
 @implementation NSRunningApplication (params)
-
-    - (pid_t)selectedPID;
+- (pid_t)selectedPID;
     {
+        CurrentlySelectedProcessID = self.processIdentifier;
         return self.processIdentifier;
     }
 
@@ -36,11 +38,10 @@
     {
         int niceness_value;
         pid_t selected_PID;
-        
+
         selected_PID = self.processIdentifier;
-        
         niceness_value = getpriority(PRIO_PROCESS, selected_PID);
-        
+
         return niceness_value;
     }
 @end

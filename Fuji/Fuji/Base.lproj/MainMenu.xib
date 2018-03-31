@@ -23,7 +23,11 @@
                 <outlet property="arrayOfRunningProcesses" destination="x0J-dA-eD0" id="tDK-xH-isU"/>
             </connections>
         </customObject>
-        <customObject id="Ce5-pz-z4z" customClass="ViewController"/>
+        <customObject id="Ce5-pz-z4z" customClass="ViewController">
+            <connections>
+                <outlet property="increasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="VQf-tB-qBz"/>
+            </connections>
+        </customObject>
         <arrayController id="x0J-dA-eD0">
             <connections>
                 <binding destination="7Pc-6j-3u3" name="contentArray" keyPath="workspace.runningApplications" id="Eq9-gv-KF6"/>
@@ -727,7 +731,11 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="x0J-dA-eD0" name="value" keyPath="arrangedObjects.localizedName" id="pf7-vk-3gD"/>
+                                                <binding destination="x0J-dA-eD0" name="value" keyPath="arrangedObjects.localizedName" id="FgG-Jk-2bn">
+                                                    <dictionary key="options">
+                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
@@ -780,7 +788,11 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="x0J-dA-eD0" name="value" keyPath="selection.selectedNiceness" id="YPb-x5-4lb"/>
+                            <binding destination="x0J-dA-eD0" name="value" keyPath="selection.selectedNiceness" id="UvQ-Tj-GFJ">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uWD-16-ENl">
@@ -793,14 +805,14 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FUG-w8-idJ">
-                        <rect key="frame" x="162" y="84" width="81" height="32"/>
+                        <rect key="frame" x="162" y="83" width="79" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="faZ-yu-oqY">
+                        <buttonCell key="cell" type="push" title="Increase" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="faZ-yu-oqY">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="ProcessButton:" target="Ce5-pz-z4z" id="pyl-tc-Gdd"/>
+                            <action selector="increaseSelectedNI:" target="Ce5-pz-z4z" id="bnN-2D-pKB"/>
                         </connections>
                     </button>
                 </subviews>

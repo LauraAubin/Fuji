@@ -8,10 +8,15 @@
 #ifndef ViewController_h
 #define ViewController_h
 
+#import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
 @interface ViewController : NSViewController
-    - (IBAction)ProcessButton:(id)sender;
+    - (IBAction)increaseSelectedNI:(id)sender;
+
+    @property (strong) IBOutlet NSTextField *increasingProcessPriorityDisplay;
+
+    - (int)getCurrentProcessPriority;
 @end
 
 #endif /* ViewController_h */
