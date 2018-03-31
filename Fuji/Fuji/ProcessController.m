@@ -18,7 +18,7 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
     - (void)applicationDidBecomeActive:(NSNotification *)notification
     {
         [self.arrayOfRunningProcesses rearrangeObjects];
-//        NSLog(@"Array: %@", _arrayOfRunningProcesses);
+        // NSLog(@"Array: %@", _arrayOfRunningProcesses);
     }
 
     - (NSWorkspace *)workspace;

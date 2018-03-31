@@ -9,10 +9,13 @@
 #import "ProcessController.h"
 #import "ViewController.h"
 #import <Cocoa/Cocoa.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+
+#include <sys/types.h>
+#include <unistd.h>
 
 extern int CurrentlySelectedProcessID;
-
-//@synthesize *currentProcessNiceness;
 
 @implementation ViewController
     - (IBAction)increaseSelectedNI:(id)sender {
@@ -24,6 +27,22 @@ extern int CurrentlySelectedProcessID;
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
         
         _increasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+    }
+
+    - (IBAction)decreaseSelectedNI:(id)sender {
+        int decreasedPriority = -20;
+        
+        setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, -3);
+        
+        system("sudo renice -n -10 -p 1054");
+        
+//        printf("Decreased priority: %d and ", decreasedPriority);
+        printf("get priority: %d\n", [self getCurrentProcessPriority]);
+        
+        // convert an int to a string
+        NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
+        
+        _decreasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
     }
 
     - (int)getCurrentProcessPriority; {

@@ -13,8 +13,10 @@
 
 @interface ViewController : NSViewController
     - (IBAction)increaseSelectedNI:(id)sender;
+    - (IBAction)decreaseSelectedNI:(id)sender;
 
     @property (strong) IBOutlet NSTextField *increasingProcessPriorityDisplay;
+    @property (strong) IBOutlet NSTextField *decreasingProcessPriorityDisplay;
 
     - (int)getCurrentProcessPriority;
 @end
