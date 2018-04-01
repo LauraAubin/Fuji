@@ -25,7 +25,7 @@
         </customObject>
         <customObject id="Ce5-pz-z4z" customClass="ViewController">
             <connections>
-                <outlet property="decreasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="v4K-oo-GbC"/>
+                <outlet property="decreasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="5eS-uG-LE7"/>
                 <outlet property="increasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="VQf-tB-qBz"/>
             </connections>
         </customObject>

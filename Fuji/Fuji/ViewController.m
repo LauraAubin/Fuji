@@ -18,12 +18,12 @@ extern int CurrentlySelectedProcessID;
 
     - (IBAction)increaseSelectedNI:(id)sender {
         int increasedPriority = [self getCurrentProcessPriority] + 1;
-        
+
         setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, increasedPriority);
-        
+
         // convert an int to a string
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
-        
+
         _increasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
     }
 
@@ -34,7 +34,7 @@ extern int CurrentlySelectedProcessID;
         
         // convert an int to a string
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
-        
+
         _decreasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
     }
 

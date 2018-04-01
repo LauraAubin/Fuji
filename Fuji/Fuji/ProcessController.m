@@ -8,8 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "ProcessController.h"
 #import <Cocoa/Cocoa.h>
-#include <sys/time.h>
-#include <sys/resource.h>
 
 extern int CurrentlySelectedProcessID; // access the global variable declared in main
 
