@@ -18,6 +18,7 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 
 The following are some pull requests that show how major tasks were completed:
 
-- [PR that outlines connecting a controller to the UI](https://github.com/LauraAubin/Fuji/pull/9)
-- [PR that uses instance methods](https://github.com/LauraAubin/Fuji/pull/12)
-- [PR that creates a button](https://github.com/LauraAubin/Fuji/pull/14)
+- [Connecting a controller to the UI](https://github.com/LauraAubin/Fuji/pull/9)
+- [Using instance methods](https://github.com/LauraAubin/Fuji/pull/12)
+- [Create a button](https://github.com/LauraAubin/Fuji/pull/14)
+- [Track physical memory and CPU usage](https://github.com/LauraAubin/Fuji/pull/19)
