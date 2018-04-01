@@ -26,7 +26,7 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
 @end
 
 @implementation NSRunningApplication (params)
-- (pid_t)selectedPID;
+    - (pid_t)selectedPID;
     {
         CurrentlySelectedProcessID = self.processIdentifier;
         return self.processIdentifier;
@@ -41,6 +41,11 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
         niceness_value = getpriority(PRIO_PROCESS, selected_PID);
 
         return niceness_value;
+    }
+
+    - (int) selectedCPU;
+    {
+        return 0;
     }
 @end
 
