@@ -12,12 +12,10 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 
-#include <sys/types.h>
-#include <unistd.h>
-
 extern int CurrentlySelectedProcessID;
 
 @implementation ViewController
+
     - (IBAction)increaseSelectedNI:(id)sender {
         int increasedPriority = [self getCurrentProcessPriority] + 1;
         
@@ -30,14 +28,9 @@ extern int CurrentlySelectedProcessID;
     }
 
     - (IBAction)decreaseSelectedNI:(id)sender {
-        int decreasedPriority = -20;
+        int decreasedPriority = [self getCurrentProcessPriority] - 1;
         
-        setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, -3);
-        
-        system("sudo renice -n -10 -p 1054");
-        
-//        printf("Decreased priority: %d and ", decreasedPriority);
-        printf("get priority: %d\n", [self getCurrentProcessPriority]);
+        setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, decreasedPriority);
         
         // convert an int to a string
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];

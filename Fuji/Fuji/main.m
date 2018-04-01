@@ -8,16 +8,9 @@
 #import <Cocoa/Cocoa.h>
 #import "ProcessController.h"
 
-#include <sys/types.h>
-#include <unistd.h>
-
 int CurrentlySelectedProcessID = 0;
 
 int main(int argc, const char * argv[]) {
-    
-    seteuid(0);
-    setuid(0);
-    
     ProcessController* processControllerInstance = [[ProcessController alloc] init];
 
     NSWorkspace* workspaceInstance = [processControllerInstance workspace];
