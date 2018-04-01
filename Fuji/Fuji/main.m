@@ -11,7 +11,6 @@
 int CurrentlySelectedProcessID = 0;
 
 int main(int argc, const char * argv[]) {
-    
     ProcessController* processControllerInstance = [[ProcessController alloc] init];
 
     NSWorkspace* workspaceInstance = [processControllerInstance workspace];

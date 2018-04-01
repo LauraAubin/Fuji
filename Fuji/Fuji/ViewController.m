@@ -9,21 +9,33 @@
 #import "ProcessController.h"
 #import "ViewController.h"
 #import <Cocoa/Cocoa.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 
 extern int CurrentlySelectedProcessID;
 
-//@synthesize *currentProcessNiceness;
-
 @implementation ViewController
+
     - (IBAction)increaseSelectedNI:(id)sender {
         int increasedPriority = [self getCurrentProcessPriority] + 1;
-        
+
         setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, increasedPriority);
+
+        // convert an int to a string
+        NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
+
+        _increasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+    }
+
+    - (IBAction)decreaseSelectedNI:(id)sender {
+        int decreasedPriority = [self getCurrentProcessPriority] - 1;
+        
+        setpriority(PRIO_PROCESS, CurrentlySelectedProcessID, decreasedPriority);
         
         // convert an int to a string
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
-        
-        _increasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+
+        _decreasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
     }
 
     - (int)getCurrentProcessPriority; {

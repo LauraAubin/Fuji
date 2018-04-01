@@ -25,6 +25,7 @@
         </customObject>
         <customObject id="Ce5-pz-z4z" customClass="ViewController">
             <connections>
+                <outlet property="decreasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="5eS-uG-LE7"/>
                 <outlet property="increasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="VQf-tB-qBz"/>
             </connections>
         </customObject>
@@ -813,6 +814,17 @@
                         </buttonCell>
                         <connections>
                             <action selector="increaseSelectedNI:" target="Ce5-pz-z4z" id="bnN-2D-pKB"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aE-YY-SuQ">
+                        <rect key="frame" x="237" y="83" width="84" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Decrease" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Iai-lg-MpB">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="decreaseSelectedNI:" target="Ce5-pz-z4z" id="o9m-iq-OGR"/>
                         </connections>
                     </button>
                 </subviews>
