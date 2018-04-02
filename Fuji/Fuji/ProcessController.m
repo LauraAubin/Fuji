@@ -46,7 +46,14 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
         return niceness_value;
     }
 
-    - (int) selectedCPU;
+    - (float) refreshCPU;
+    {
+        [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector (updateSelectedCPU) userInfo:nil repeats:YES];
+        
+        return [self updateSelectedCPU];
+    }
+
+    - (float) updateSelectedCPU;
     {
         FILE *pipeStream;
         
@@ -86,6 +93,8 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
         
         float cpuUsageFloat;
         cpuUsageFloat = (float)atof(cpuUsage);
+        
+        printf("%f for PID %d\n", cpuUsageFloat, CurrentlySelectedProcessID);
         
         return cpuUsageFloat;
     }

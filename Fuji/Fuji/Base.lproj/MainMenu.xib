@@ -836,7 +836,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="x0J-dA-eD0" name="value" keyPath="selection.selectedCPU" id="3GG-xV-lRg">
+                            <binding destination="x0J-dA-eD0" name="value" keyPath="selection.refreshCPU" id="qJ0-ii-uwZ">
                                 <dictionary key="options">
                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                 </dictionary>
