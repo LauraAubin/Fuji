@@ -25,6 +25,7 @@
         </customObject>
         <customObject id="Ce5-pz-z4z" customClass="ViewController">
             <connections>
+                <outlet property="cpuRefreshValue" destination="A7r-Td-3Xq" id="cqD-Pt-mz8"/>
                 <outlet property="decreasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="5eS-uG-LE7"/>
                 <outlet property="increasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="VQf-tB-qBz"/>
             </connections>
@@ -836,11 +837,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="x0J-dA-eD0" name="value" keyPath="selection.refreshCPU" id="qJ0-ii-uwZ">
-                                <dictionary key="options">
-                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                </dictionary>
-                            </binding>
+                            <binding destination="Ce5-pz-z4z" name="value" keyPath="selectedProcessCPU" id="5aE-84-4b9"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dR7-vE-Cn6">

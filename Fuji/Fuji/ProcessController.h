@@ -9,6 +9,8 @@
 #define ProcessController_h
 
 #import <Cocoa/Cocoa.h>
+#import "ProcessController.h"
+#import "ViewController.h"
 
 @interface ProcessController : NSObject
     @property (weak, readonly) NSWorkspace *workspace;
@@ -19,9 +21,6 @@
 @interface NSRunningApplication (params)
     @property (readonly) pid_t selectedPID;
     @property (readonly) pid_t selectedNiceness;
-
-    @property (readonly) float refreshCPU;
-    @property (readonly) float updateSelectedCPU;
 @end
 
 #endif /* ProcessController_h */
