@@ -24,12 +24,12 @@
     @property (readonly) NSString *selectedProcessCPU;
     @property (strong) IBOutlet NSTextField *cpuRefreshValue;
     - (float)calculateIndividualCPU;
-    - (void)updateCpuDisplayText;
 
     // total system CPU value
     - (float)calculateTotalCPU;
 
     - (int)getCurrentProcessPriority;
+    - (void)updateCpuDisplayText;
 @end
 
 #endif /* ViewController_h */
