@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import "ProcessController.h"
+#import "ViewController.h"
 
 @interface ViewController : NSViewController
     - (IBAction)increaseSelectedNI:(id)sender;
@@ -18,7 +20,13 @@
     @property (strong) IBOutlet NSTextField *increasingProcessPriorityDisplay;
     @property (strong) IBOutlet NSTextField *decreasingProcessPriorityDisplay;
 
+    @property (readonly) NSString *selectedProcessCPU;
+    @property (strong) IBOutlet NSTextField *cpuRefreshValue;
+
     - (int)getCurrentProcessPriority;
+
+    - (float)calculateIndividualCPU;
+    - (void)updateCpuDisplayText;
 @end
 
 #endif /* ViewController_h */

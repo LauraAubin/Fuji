@@ -25,6 +25,7 @@
         </customObject>
         <customObject id="Ce5-pz-z4z" customClass="ViewController">
             <connections>
+                <outlet property="cpuRefreshValue" destination="A7r-Td-3Xq" id="cqD-Pt-mz8"/>
                 <outlet property="decreasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="5eS-uG-LE7"/>
                 <outlet property="increasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="VQf-tB-qBz"/>
             </connections>
@@ -827,6 +828,27 @@
                             <action selector="decreaseSelectedNI:" target="Ce5-pz-z4z" id="o9m-iq-OGR"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7r-Td-3Xq">
+                        <rect key="frame" x="110" y="63" width="50" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="E45-S9-X0E">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="Ce5-pz-z4z" name="value" keyPath="selectedProcessCPU" id="5aE-84-4b9"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dR7-vE-Cn6">
+                        <rect key="frame" x="28" y="68" width="75" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="CPU usage:" id="EpN-5j-GSm">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="139" y="541"/>

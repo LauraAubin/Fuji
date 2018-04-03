@@ -9,6 +9,8 @@
 #define ProcessController_h
 
 #import <Cocoa/Cocoa.h>
+#import "ProcessController.h"
+#import "ViewController.h"
 
 @interface ProcessController : NSObject
     @property (weak, readonly) NSWorkspace *workspace;

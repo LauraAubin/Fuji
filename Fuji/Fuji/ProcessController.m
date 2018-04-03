@@ -7,7 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ProcessController.h"
+#import "ViewController.h"
 #import <Cocoa/Cocoa.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 extern int CurrentlySelectedProcessID; // access the global variable declared in main
 
@@ -26,7 +30,7 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
 @end
 
 @implementation NSRunningApplication (params)
-- (pid_t)selectedPID;
+    - (pid_t)selectedPID;
     {
         CurrentlySelectedProcessID = self.processIdentifier;
         return self.processIdentifier;
