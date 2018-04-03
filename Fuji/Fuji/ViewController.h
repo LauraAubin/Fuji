@@ -20,7 +20,7 @@
     @property (strong) IBOutlet NSTextField *increasingProcessPriorityDisplay;
     @property (strong) IBOutlet NSTextField *decreasingProcessPriorityDisplay;
 
-    @property (readonly) float selectedProcessCPU;
+    @property (readonly) NSString *selectedProcessCPU;
     @property (strong) IBOutlet NSTextField *cpuRefreshValue;
 
     - (int)getCurrentProcessPriority;

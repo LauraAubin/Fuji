@@ -41,14 +41,18 @@ extern int CurrentlySelectedProcessID;
         return getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
     }
 
-    - (float) selectedProcessCPU {
+    - (NSString *) selectedProcessCPU {
         [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector (updateCpuDisplayText) userInfo:nil repeats:YES];
         
-        return [self calculateIndividualCPU];
+        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f", [self calculateIndividualCPU]];
+        
+        return formattedCPUValue;
     }
 
     - (void)updateCpuDisplayText {
-        _cpuRefreshValue.floatValue = [self calculateIndividualCPU];
+        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f", [self calculateIndividualCPU]];
+        
+        _cpuRefreshValue.stringValue = formattedCPUValue;
     }
 
     - (float)calculateIndividualCPU {
