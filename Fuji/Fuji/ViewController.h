@@ -20,12 +20,15 @@
     @property (strong) IBOutlet NSTextField *increasingProcessPriorityDisplay;
     @property (strong) IBOutlet NSTextField *decreasingProcessPriorityDisplay;
 
+    // individual process' CPU value
     @property (readonly) NSString *selectedProcessCPU;
     @property (strong) IBOutlet NSTextField *cpuRefreshValue;
+    - (float)calculateIndividualCPU;
+
+    // total system CPU value
+    - (float)calculateTotalCPU;
 
     - (int)getCurrentProcessPriority;
-
-    - (float)calculateIndividualCPU;
     - (void)updateCpuDisplayText;
 @end
 
