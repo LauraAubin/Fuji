@@ -44,13 +44,13 @@ extern int CurrentlySelectedProcessID;
     - (NSString *) selectedProcessCPU {
         [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector (updateCpuDisplayText) userInfo:nil repeats:YES];
         
-        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f", [self calculateIndividualCPU]];
+        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", [self calculateIndividualCPU]];
         
         return formattedCPUValue;
     }
 
     - (void)updateCpuDisplayText {
-        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f", [self calculateIndividualCPU]];
+        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", [self calculateIndividualCPU]];
         
         _cpuRefreshValue.stringValue = formattedCPUValue;
     }
