@@ -12,7 +12,7 @@ _link to demo or pictures_
 
 See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active system calls and resources.
 
-## [Implementation:](https://github.com/LauraAubin/Fuji/issues/4)
+## Implementation:
 
 | Description | Completion goal  | Issue     | Completed    |
 | ---------- |:---------:| ----:|-----:|
@@ -23,7 +23,9 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 |  Track CPU logic and fluctuating patterns    |  April 6  |  [#26](https://github.com/LauraAubin/Fuji/issues/26)  |  |
 |  CPU recommendations    | April 10  |  None  |  |
 
-The following are some pull requests that show how major tasks were completed:
+## Helpful pull requests:
+
+**The following help explain how major tasks were completed:**
 
 - [Connecting a controller to the UI](https://github.com/LauraAubin/Fuji/pull/9)
 - [Using instance methods](https://github.com/LauraAubin/Fuji/pull/12)
