@@ -13,6 +13,7 @@
 #include <sys/resource.h>
 
 extern int CurrentlySelectedProcessID;
+int updateTimerIntervalSeconds = 7;
 
 @implementation ViewController
     - (IBAction)increaseSelectedNI:(id)sender {
@@ -42,7 +43,7 @@ extern int CurrentlySelectedProcessID;
     }
 
     - (NSString *) selectedProcessCPU {
-        [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector (updateCpuDisplayText) userInfo:nil repeats:YES];
+        [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (updateCpuDisplayText) userInfo:nil repeats:YES];
         
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", [self calculateIndividualCPU]];
         
