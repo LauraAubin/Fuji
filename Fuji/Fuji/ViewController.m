@@ -42,7 +42,7 @@ int updateTimerIntervalSeconds = 7;
         return getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
     }
 
-    - (NSString *) selectedProcessCPU {
+    - (NSString *)selectedProcessCPU {
         [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (updateCpuDisplayText) userInfo:nil repeats:YES];
         
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", [self calculateIndividualCPU]];
@@ -55,6 +55,12 @@ int updateTimerIntervalSeconds = 7;
         NSString *formattedTotalCPUValue = [NSString stringWithFormat:@"%.02f%%", [self calculateTotalCPU]];
         
         _cpuRefreshValue.stringValue = formattedCPUValue;
+    }
+
+    // used for the progress bar
+
+    - (int)maxCPUProgressBarValue {
+        return 20;
     }
 
     - (float)calculateIndividualCPU {
@@ -96,7 +102,7 @@ int updateTimerIntervalSeconds = 7;
         
         float cpuUsageFloat;
         cpuUsageFloat = (float)atof(cpuUsage);
-        
+
         return cpuUsageFloat;
     }
 

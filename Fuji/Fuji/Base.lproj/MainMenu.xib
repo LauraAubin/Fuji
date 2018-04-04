@@ -849,6 +849,14 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="zeW-Td-ReB">
+                        <rect key="frame" x="168" y="62" width="147" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <binding destination="Ce5-pz-z4z" name="maxValue" keyPath="maxCPUProgressBarValue" id="Mjd-ZU-wGj"/>
+                            <binding destination="Ce5-pz-z4z" name="value" keyPath="calculateIndividualCPU" previousBinding="Mjd-ZU-wGj" id="5h6-7h-Bw5"/>
+                        </connections>
+                    </progressIndicator>
                 </subviews>
             </view>
             <point key="canvasLocation" x="139" y="541"/>

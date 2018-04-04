@@ -30,6 +30,7 @@
 
     - (int)getCurrentProcessPriority;
     - (void)updateCpuDisplayText;
+    - (int)maxCPUProgressBarValue;
 @end
 
 #endif /* ViewController_h */
