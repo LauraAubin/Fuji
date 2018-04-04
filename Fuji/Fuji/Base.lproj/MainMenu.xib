@@ -28,6 +28,7 @@
                 <outlet property="cpuRefreshValue" destination="A7r-Td-3Xq" id="cqD-Pt-mz8"/>
                 <outlet property="decreasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="5eS-uG-LE7"/>
                 <outlet property="increasingProcessPriorityDisplay" destination="jqx-Of-MSA" id="VQf-tB-qBz"/>
+                <outlet property="selectedCPUProgressBarRefreshValue" destination="zeW-Td-ReB" id="W5z-CW-ATt"/>
             </connections>
         </customObject>
         <arrayController id="x0J-dA-eD0">

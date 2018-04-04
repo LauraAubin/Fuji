@@ -55,12 +55,13 @@ int updateTimerIntervalSeconds = 7;
         NSString *formattedTotalCPUValue = [NSString stringWithFormat:@"%.02f%%", [self calculateTotalCPU]];
         
         _cpuRefreshValue.stringValue = formattedCPUValue;
+        _selectedCPUProgressBarRefreshValue.doubleValue = [self calculateIndividualCPU];
     }
 
     // used for the progress bar
 
     - (int)maxCPUProgressBarValue {
-        return 20;
+        return 100;
     }
 
     - (float)calculateIndividualCPU {
