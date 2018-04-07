@@ -14,6 +14,8 @@
 #include <string.h>
 
 extern int CurrentlySelectedProcessID; // access the global variable declared in main
+extern float last_time;
+extern float curr_time;
 
 @implementation ProcessController
 
@@ -33,6 +35,10 @@ extern int CurrentlySelectedProcessID; // access the global variable declared in
     - (pid_t)selectedPID;
     {
         CurrentlySelectedProcessID = self.processIdentifier;
+        
+        last_time = 0;
+        curr_time = 0;
+        
         return self.processIdentifier;
     }
 

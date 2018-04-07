@@ -24,10 +24,7 @@
     @property (readonly) NSString *selectedProcessCPU;
     @property (strong) IBOutlet NSTextField *cpuRefreshValue;
     @property (strong) IBOutlet NSProgressIndicator *selectedCPUProgressBarRefreshValue;
-    - (float)calculateIndividualCPU;
-
-    // total system CPU value
-    - (float)calculateTotalCPU;
+    - (void)calculateSingleCPU;
 
     - (int)getCurrentProcessPriority;
     - (void)updateCpuDisplayText;

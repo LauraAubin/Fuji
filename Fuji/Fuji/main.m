@@ -7,8 +7,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ProcessController.h"
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 int CurrentlySelectedProcessID = 0;
+float last_time = 0;
+float curr_time = 0;
 
 int main(int argc, const char * argv[]) {
     ProcessController* processControllerInstance = [[ProcessController alloc] init];
@@ -20,7 +24,7 @@ int main(int argc, const char * argv[]) {
     for(int i = 0; i < [allRunningApplications count]; i++){
         NSRunningApplication *arrayAtIndex = allRunningApplications[i];
 
-        NSLog(@"Name %@ with pid: %d\n", arrayAtIndex.localizedName, arrayAtIndex.processIdentifier);
+        //NSLog(@"Name %@ with pid: %d\n", arrayAtIndex.localizedName, arrayAtIndex.processIdentifier);
     }
     
     return NSApplicationMain(argc, argv);

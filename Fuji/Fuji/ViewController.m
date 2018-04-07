@@ -11,11 +11,25 @@
 #import <Cocoa/Cocoa.h>
 #include <sys/time.h>
 #include <sys/resource.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 extern int CurrentlySelectedProcessID;
-int updateTimerIntervalSeconds = 7;
+extern float last_time;
+extern float curr_time;
+
+int updateTimerIntervalSeconds = 5;
+float CurrentlySelectedProcessCPUValue = 0;
 
 @implementation ViewController
+
+//----------------------------------------------------------------
+// --------------------- PRIORITY / NICENESS ---------------------
+//----------------------------------------------------------------
+
     - (IBAction)increaseSelectedNI:(id)sender {
         int increasedPriority = [self getCurrentProcessPriority] + 1;
 
@@ -42,40 +56,27 @@ int updateTimerIntervalSeconds = 7;
         return getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
     }
 
+//----------------------------------------------------------------
+// ----------------------------- CPU -----------------------------
+//----------------------------------------------------------------
+
     - (NSString *)selectedProcessCPU {
-        [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (updateCpuDisplayText) userInfo:nil repeats:YES];
+        [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (calculateSingleCPU) userInfo:nil repeats:YES];
         
-        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", [self calculateIndividualCPU]];
-        
-        return formattedCPUValue;
+        return 0;
     }
 
-    - (void)updateCpuDisplayText {
-        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", [self calculateIndividualCPU]];
-        NSString *formattedTotalCPUValue = [NSString stringWithFormat:@"%.02f%%", [self calculateTotalCPU]];
-        
-        _cpuRefreshValue.stringValue = formattedCPUValue;
-        _selectedCPUProgressBarRefreshValue.doubleValue = [self calculateIndividualCPU];
-    }
-
-    // used for the progress bar
-
-    - (int)maxCPUProgressBarValue {
-        return 100;
-    }
-
-    - (float)calculateIndividualCPU {
+    - (void)calculateSingleCPU {
         FILE *pipeStream;
         
         char cpuBuffer[500];
         int done = 0;
         
-        char selectedPID[50];
+        char selectedPID[10000];
         sprintf(selectedPID, "%d", CurrentlySelectedProcessID);
         
-        char command[100] = "ps -p ";
+        char command[100] = "top -stats time -pid ";
         strcat(command, selectedPID);
-        strcat(command, " -o %cpu");
         
         // open the command for reading
         // -n1 : only run once
@@ -85,9 +86,8 @@ int updateTimerIntervalSeconds = 7;
             exit(1);
         }
         
-        // Read the output one line at a time
-        // 2 is the number of lines we are traversing to find the one that we will parse
-        while ((done < 2) && (fgets(cpuBuffer, sizeof(cpuBuffer) - 1, pipeStream) != NULL)) {
+        // read the output one line at a time
+        while ((done < 13) && (fgets(cpuBuffer, sizeof(cpuBuffer)-1, pipeStream) != NULL)) {
             done++;
         }
         
@@ -95,74 +95,49 @@ int updateTimerIntervalSeconds = 7;
         
         char cpuUsage[100];
         int cpuIndex = 0;
-        int cpuBufferIndex = 2;
+        int cpuBufferIndex = 0;
         
-        for(int i = 0; i < 3; i++){
+        while(cpuBuffer[cpuBufferIndex] != '.'){
+            cpuBufferIndex++;
+        }
+        
+        cpuBufferIndex -= 2; //go back to the start of the seconds
+        
+        //Read the seconds and decimal seconds
+        for(int i = 0; i < 5; i++){
             cpuUsage[cpuIndex++] = cpuBuffer[cpuBufferIndex++];
         }
         
-        float cpuUsageFloat;
-        cpuUsageFloat = (float)atof(cpuUsage);
+        //Save this as the current seconds
+        curr_time = (float)atof(cpuUsage);
+        
+        if(last_time == 0){
+            last_time = curr_time;
+            return;
+        }
+        
+        float time_delta;
+        
+        if(last_time > curr_time){
+            time_delta = (60 - last_time) + curr_time;
+        }
+        else{
+            time_delta = curr_time - last_time;
+        }
+        
+        last_time = curr_time;
+        
+        CurrentlySelectedProcessCPUValue = ((time_delta * 100))/updateTimerIntervalSeconds;
 
-        return cpuUsageFloat;
+        [self updateCpuDisplayText];
     }
 
-     - (float)calculateTotalCPU {
-         FILE *pipeStream;
-         
-         char cpuBuffer[500];
-         int done = 0;
+    - (void)updateCpuDisplayText {
+        _cpuRefreshValue.floatValue = CurrentlySelectedProcessCPUValue;
+        _selectedCPUProgressBarRefreshValue.doubleValue = CurrentlySelectedProcessCPUValue;
+    }
 
-         // open the command for reading
-         // -n1 : only run once
-         pipeStream = popen("top -n1 -stats 'cpu,command'", "r");
-         
-         if (pipeStream == NULL) {
-             printf("Failed to run command\n" );
-             exit(1);
-         }
-
-         /* Read the output a line at a time - output it. */
-         while ((done < 4) && (fgets(cpuBuffer, sizeof(cpuBuffer) - 1, pipeStream) != NULL)) {
-             done++;
-         }
-
-         pclose(pipeStream);
-
-         char user[100];
-         char sys[100];
-         char idle[100];
-         
-         int index = 0;
-         
-         int cpuBufferIndex = 11; // first CPU reading
-         
-         while(cpuBuffer[cpuBufferIndex] != '%'){
-             user[index++] = cpuBuffer[cpuBufferIndex++];
-         }
-         cpuBufferIndex += 8; //second CPU reading
-         index = 0;
-         
-         while(cpuBuffer[cpuBufferIndex] != '%'){
-             sys[index++] = cpuBuffer[cpuBufferIndex++];
-         }
-         
-         cpuBufferIndex += 7; //third CPU reading
-         index = 0;
-         
-         while(cpuBuffer[cpuBufferIndex] != '%'){
-             idle[index++] = cpuBuffer[cpuBufferIndex++];
-         }
-
-         float userF, sysF;
-         userF = (float)atof(user);
-         sysF = (float)atof(sys);
-         float inUse = (userF + sysF)/2;
-         float idleF = (float)atof(idle) + (userF + sysF)/2;
-
-//         printf("CPU in use: %.2f%%\n", inUse);
-//         printf("CPU idle: %.2f%%\n", idleF);
-
-         return inUse;
-     }
+    - (int)maxCPUProgressBarValue {
+        return 100;
+    }
 @end
