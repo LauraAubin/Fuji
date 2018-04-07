@@ -16,6 +16,7 @@
 extern int CurrentlySelectedProcessID; // access the global variable declared in main
 extern float last_time;
 extern float curr_time;
+extern bool newProcessSelectedForCPUArray;
 
 @implementation ProcessController
 
@@ -38,6 +39,7 @@ extern float curr_time;
         
         last_time = 0;
         curr_time = 0;
+        newProcessSelectedForCPUArray = true;
         
         return self.processIdentifier;
     }

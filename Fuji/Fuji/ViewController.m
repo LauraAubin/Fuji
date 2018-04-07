@@ -22,7 +22,13 @@ extern float last_time;
 extern float curr_time;
 
 int updateTimerIntervalSeconds = 5;
+
 float CurrentlySelectedProcessCPUValue = 0;
+
+int sizeOfCPUArray = 2;
+int CPUArrayDifference = 30;
+float lastCPUReadings[2];
+extern bool newProcessSelectedForCPUArray;
 
 @implementation ViewController
 
@@ -87,7 +93,7 @@ float CurrentlySelectedProcessCPUValue = 0;
         }
         
         // read the output one line at a time
-        while ((done < 13) && (fgets(cpuBuffer, sizeof(cpuBuffer)-1, pipeStream) != NULL)) {
+        while ((done < 13) && (fgets(cpuBuffer, sizeof(cpuBuffer) - 1, pipeStream) != NULL)) {
             done++;
         }
         
@@ -137,6 +143,30 @@ float CurrentlySelectedProcessCPUValue = 0;
         _cpuRefreshValue.stringValue = formattedCPUValue;
         
         _selectedCPUProgressBarRefreshValue.doubleValue = CurrentlySelectedProcessCPUValue;
+        
+        // push a new element to the end and drop the first
+        for(int x = 1; x < sizeOfCPUArray; x++){
+            lastCPUReadings[x - 1] = lastCPUReadings[x];
+        }
+        lastCPUReadings[sizeOfCPUArray - 1] = CurrentlySelectedProcessCPUValue;
+        
+        if (newProcessSelectedForCPUArray == true){
+            [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector (setCPUProcessArrayVariableToFalse) userInfo:nil repeats:NO];
+        }
+        
+        if (newProcessSelectedForCPUArray == false){
+            [self evaluateSelectedCPU];
+        }
+    }
+
+    - (void)setCPUProcessArrayVariableToFalse {
+        newProcessSelectedForCPUArray = false;
+    }
+
+    - (void)evaluateSelectedCPU {
+        if (lastCPUReadings[1] < (lastCPUReadings[0] - CPUArrayDifference) || lastCPUReadings[1] > (lastCPUReadings[0] + CPUArrayDifference)){
+            printf("Change\n");
+        }
     }
 
     - (int)maxCPUProgressBarValue {
