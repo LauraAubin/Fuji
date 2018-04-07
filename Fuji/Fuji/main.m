@@ -14,6 +14,8 @@ int CurrentlySelectedProcessID = 0;
 float last_time = 0;
 float curr_time = 0;
 
+bool newProcessSelectedForCPUArray = false;
+
 int main(int argc, const char * argv[]) {
     ProcessController* processControllerInstance = [[ProcessController alloc] init];
 

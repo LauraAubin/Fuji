@@ -25,6 +25,8 @@
     @property (strong) IBOutlet NSTextField *cpuRefreshValue;
     @property (strong) IBOutlet NSProgressIndicator *selectedCPUProgressBarRefreshValue;
     - (void)calculateSingleCPU;
+    - (void)setCPUProcessArrayVariableToFalse;
+    - (void)evaluateSelectedCPU;
 
     - (int)getCurrentProcessPriority;
     - (void)updateCpuDisplayText;
