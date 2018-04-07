@@ -30,4 +30,4 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 - [Connecting a controller to the UI](https://github.com/LauraAubin/Fuji/pull/9)
 - [Using instance methods](https://github.com/LauraAubin/Fuji/pull/12)
 - [Create a button](https://github.com/LauraAubin/Fuji/pull/14)
-- [Track physical memory and CPU usage](https://github.com/LauraAubin/Fuji/pull/19)
+- [CPU usage for an individual process](https://github.com/LauraAubin/Fuji/pull/25)
