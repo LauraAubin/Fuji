@@ -133,7 +133,9 @@ float CurrentlySelectedProcessCPUValue = 0;
     }
 
     - (void)updateCpuDisplayText {
-        _cpuRefreshValue.floatValue = CurrentlySelectedProcessCPUValue;
+        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
+        _cpuRefreshValue.stringValue = formattedCPUValue;
+        
         _selectedCPUProgressBarRefreshValue.doubleValue = CurrentlySelectedProcessCPUValue;
     }
 
