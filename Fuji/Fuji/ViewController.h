@@ -23,13 +23,12 @@
     // individual process' CPU value
     @property (readonly) NSString *selectedProcessCPU;
     @property (strong) IBOutlet NSTextField *cpuRefreshValue;
-    - (float)calculateIndividualCPU;
-
-    // total system CPU value
-    - (float)calculateTotalCPU;
+    @property (strong) IBOutlet NSProgressIndicator *selectedCPUProgressBarRefreshValue;
+    - (void)calculateSingleCPU;
 
     - (int)getCurrentProcessPriority;
     - (void)updateCpuDisplayText;
+    - (int)maxCPUProgressBarValue;
 @end
 
 #endif /* ViewController_h */
