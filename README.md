@@ -31,3 +31,4 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 - [Using instance methods](https://github.com/LauraAubin/Fuji/pull/12)
 - [Create a button](https://github.com/LauraAubin/Fuji/pull/14)
 - [CPU usage for an individual process](https://github.com/LauraAubin/Fuji/pull/25)
+- [How to run the application as sudo](https://github.com/LauraAubin/Fuji/pull/18)
