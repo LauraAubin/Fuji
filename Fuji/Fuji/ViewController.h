@@ -32,12 +32,16 @@
     - (void)updateCpuDisplayText;
     - (int)maxCPUProgressBarValue;
 
+    // CPU stability animations
     @property (strong) IBOutlet NSTextField *CPUOuterCircle;
     @property (strong) IBOutlet NSTextField *CPUInnerCircle;
     @property (strong) IBOutlet NSTextField *CPUCheckMark;
     @property (strong) IBOutlet NSTextField *CPUContainerHeader;
-    @property (strong) IBOutlet NSTextField *CPUCircleContainer;
     @property (strong) IBOutlet NSTextField *CPUCircleText;
+
+    // niceness recommendations
+    @property (strong) IBOutlet NSTextField *nicenessRecommendationText;
+    @property (strong) IBOutlet NSTextField *nicenessAdditionalRecommendationText;
 @end
 
 #endif /* ViewController_h */

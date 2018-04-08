@@ -20,6 +20,7 @@
 extern int CurrentlySelectedProcessID;
 extern float last_time;
 extern float curr_time;
+extern bool newProcessSelectedForCPUArray;
 
 int updateTimerIntervalSeconds = 5;
 
@@ -28,7 +29,7 @@ float CurrentlySelectedProcessCPUValue = 0;
 int sizeOfCPUArray = 2;
 int CPUArrayDifference = 30;
 float lastCPUReadings[2];
-extern bool newProcessSelectedForCPUArray;
+bool processHasBeenConstantTimerIsRunning = false;
 
 @implementation ViewController
 
@@ -68,6 +69,10 @@ extern bool newProcessSelectedForCPUArray;
 
     - (NSString *)selectedProcessCPU {
         [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (calculateSingleCPU) userInfo:nil repeats:YES];
+        
+        // initialize the CPU progress bar
+        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(400, 245, 80, 80);
+//        _selectedCPUProgressBarRefreshValue.progressTintColor = [NSColor colorWithSRGBRed:88.0/255  green:165.0/255 blue:90.0/255  alpha:1.0]; // green
         
         return 0;
     }
@@ -164,6 +169,23 @@ extern bool newProcessSelectedForCPUArray;
         if (newProcessSelectedForCPUArray == false){
             [self evaluateSelectedCPU];
         }
+        
+        if (CurrentlySelectedProcessCPUValue < 10){
+            _nicenessRecommendationText.stringValue = @"This process has a low CPU usage";
+            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you lower it's priority";
+            
+        } else if (CurrentlySelectedProcessCPUValue > 10 && CurrentlySelectedProcessCPUValue < 50){
+            _nicenessRecommendationText.stringValue = @"This process is running smoothly";
+            _nicenessAdditionalRecommendationText.stringValue = @"";
+            
+        } else if (CurrentlySelectedProcessCPUValue > 80){
+            _nicenessRecommendationText.stringValue = @"This process has a high CPU usage";
+            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you increase it's priority";
+            
+        } else {
+            _nicenessRecommendationText.stringValue = @"";
+            _nicenessAdditionalRecommendationText.stringValue = @"";
+        }
     }
 
     - (void)setCPUProcessArrayVariableToFalse {
@@ -172,7 +194,7 @@ extern bool newProcessSelectedForCPUArray;
 
     - (void)evaluateSelectedCPU {
         if (lastCPUReadings[1] < (lastCPUReadings[0] - CPUArrayDifference)){
-            
+
             _CPUCheckMark.stringValue = @"😰"; //✕
             _CPUCheckMark.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
             _CPUInnerCircle.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
