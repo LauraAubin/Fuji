@@ -70,7 +70,7 @@ float lastCPUReadings[2];
         [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (calculateSingleCPU) userInfo:nil repeats:YES];
         
         // initialize the CPU progress bar
-        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(400, 245, 80, 80);
+        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(550, 230, 80, 80);
         
         return 0;
     }
