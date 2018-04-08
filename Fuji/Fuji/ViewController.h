@@ -31,6 +31,13 @@
     - (int)getCurrentProcessPriority;
     - (void)updateCpuDisplayText;
     - (int)maxCPUProgressBarValue;
+
+    @property (strong) IBOutlet NSTextField *CPUOuterCircle;
+    @property (strong) IBOutlet NSTextField *CPUInnerCircle;
+    @property (strong) IBOutlet NSTextField *CPUCheckMark;
+    @property (strong) IBOutlet NSTextField *CPUContainerHeader;
+    @property (strong) IBOutlet NSTextField *CPUCircleContainer;
+    @property (strong) IBOutlet NSTextField *CPUCircleText;
 @end
 
 #endif /* ViewController_h */

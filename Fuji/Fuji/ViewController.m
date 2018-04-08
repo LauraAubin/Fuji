@@ -144,6 +144,13 @@ extern bool newProcessSelectedForCPUArray;
         
         _selectedCPUProgressBarRefreshValue.doubleValue = CurrentlySelectedProcessCPUValue;
         
+        _CPUCheckMark.stringValue = @"😊"; //✔
+        _CPUCheckMark.textColor = [NSColor colorWithSRGBRed:88.0/255  green:165.0/255 blue:90.0/255  alpha:1.0]; // green
+        _CPUInnerCircle.textColor = [NSColor colorWithSRGBRed:88.0/255  green:165.0/255 blue:90.0/255  alpha:1.0]; // green
+        _CPUOuterCircle.textColor = [NSColor colorWithSRGBRed:165.0/255  green:217.0/255 blue:165.0/255  alpha:1.0]; // light green
+        _CPUCircleText.stringValue = @"Stable";
+        _CPUContainerHeader.textColor = [NSColor colorWithSRGBRed:88.0/255  green:165.0/255 blue:90.0/255  alpha:1.0]; // green
+
         // push a new element to the end and drop the first
         for(int x = 1; x < sizeOfCPUArray; x++){
             lastCPUReadings[x - 1] = lastCPUReadings[x];
@@ -164,8 +171,23 @@ extern bool newProcessSelectedForCPUArray;
     }
 
     - (void)evaluateSelectedCPU {
-        if (lastCPUReadings[1] < (lastCPUReadings[0] - CPUArrayDifference) || lastCPUReadings[1] > (lastCPUReadings[0] + CPUArrayDifference)){
-            printf("Change\n");
+        if (lastCPUReadings[1] < (lastCPUReadings[0] - CPUArrayDifference)){
+            
+            _CPUCheckMark.stringValue = @"😰"; //✕
+            _CPUCheckMark.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            _CPUInnerCircle.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            _CPUOuterCircle.textColor = [NSColor colorWithSRGBRed:252.0/255 green:173.0/255 blue:156.0/255 alpha:1.0]; // light red
+            _CPUCircleText.stringValue = @"Unstable ↓";
+            _CPUContainerHeader.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            
+        } else if (lastCPUReadings[1] > (lastCPUReadings[0] + CPUArrayDifference)){
+            
+            _CPUCheckMark.stringValue = @"😰"; //✕
+            _CPUCheckMark.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            _CPUInnerCircle.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            _CPUOuterCircle.textColor = [NSColor colorWithSRGBRed:252.0/255 green:173.0/255 blue:156.0/255 alpha:1.0]; // light red
+            _CPUCircleText.stringValue = @"Unstable ↑";
+            _CPUContainerHeader.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
         }
     }
 
