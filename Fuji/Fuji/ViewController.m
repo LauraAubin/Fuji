@@ -29,7 +29,6 @@ float CurrentlySelectedProcessCPUValue = 0;
 int sizeOfCPUArray = 2;
 int CPUArrayDifference = 30;
 float lastCPUReadings[2];
-bool processHasBeenConstantTimerIsRunning = false;
 
 @implementation ViewController
 
@@ -72,7 +71,6 @@ bool processHasBeenConstantTimerIsRunning = false;
         
         // initialize the CPU progress bar
         _selectedCPUProgressBarRefreshValue.frame = CGRectMake(400, 245, 80, 80);
-//        _selectedCPUProgressBarRefreshValue.progressTintColor = [NSColor colorWithSRGBRed:88.0/255  green:165.0/255 blue:90.0/255  alpha:1.0]; // green
         
         return 0;
     }
