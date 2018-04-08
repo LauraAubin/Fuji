@@ -171,13 +171,22 @@ extern bool newProcessSelectedForCPUArray;
     }
 
     - (void)evaluateSelectedCPU {
-        if (lastCPUReadings[1] < (lastCPUReadings[0] - CPUArrayDifference) || lastCPUReadings[1] > (lastCPUReadings[0] + CPUArrayDifference)){
+        if (lastCPUReadings[1] < (lastCPUReadings[0] - CPUArrayDifference)){
             
             _CPUCheckMark.stringValue = @"😰"; //✕
             _CPUCheckMark.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
             _CPUInnerCircle.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
             _CPUOuterCircle.textColor = [NSColor colorWithSRGBRed:252.0/255 green:173.0/255 blue:156.0/255 alpha:1.0]; // light red
-            _CPUCircleText.stringValue = @"Unstable";
+            _CPUCircleText.stringValue = @"Unstable ↓";
+            _CPUContainerHeader.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            
+        } else if (lastCPUReadings[1] > (lastCPUReadings[0] + CPUArrayDifference)){
+            
+            _CPUCheckMark.stringValue = @"😰"; //✕
+            _CPUCheckMark.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            _CPUInnerCircle.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
+            _CPUOuterCircle.textColor = [NSColor colorWithSRGBRed:252.0/255 green:173.0/255 blue:156.0/255 alpha:1.0]; // light red
+            _CPUCircleText.stringValue = @"Unstable ↑";
             _CPUContainerHeader.textColor = [NSColor colorWithSRGBRed:220.0/255 green:56.0/255 blue:37.0/255 alpha:1.0]; // red
         }
     }
