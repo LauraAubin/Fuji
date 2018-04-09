@@ -24,6 +24,7 @@
     @property (readonly) NSString *selectedProcessCPU;
     @property (strong) IBOutlet NSTextField *cpuRefreshValue;
     @property (strong) IBOutlet NSProgressIndicator *selectedCPUProgressBarRefreshValue;
+    @property (strong) IBOutlet NSTextField *circleCPUPercentage;
     - (void)calculateSingleCPU;
     - (void)setCPUProcessArrayVariableToFalse;
     - (void)evaluateSelectedCPU;

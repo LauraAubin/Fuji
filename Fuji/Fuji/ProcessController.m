@@ -34,7 +34,12 @@ extern bool processHasBeenConstant;
 @end
 
 @implementation NSRunningApplication (params)
-    - (pid_t)selectedPID;
+    - (NSString*)selectedName;
+    {
+        return self.localizedName;
+    }
+
+    - (NSString*)selectedPID;
     {
         CurrentlySelectedProcessID = self.processIdentifier;
         
@@ -42,7 +47,9 @@ extern bool processHasBeenConstant;
         curr_time = 0;
         newProcessSelectedForCPUArray = true;
         
-        return self.processIdentifier;
+        NSString *formattedPID = [NSString stringWithFormat:@"%d", CurrentlySelectedProcessID];
+        
+        return formattedPID;
     }
 
     - (int)selectedNiceness;
