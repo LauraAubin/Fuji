@@ -857,7 +857,7 @@ AAAAAAAAAAAAAAAAAAABPA
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ez-hr-DwV">
-                        <rect key="frame" x="467" y="37" width="206" height="74"/>
+                        <rect key="frame" x="467" y="37" width="206" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="aon-Cf-LKW">
                             <font key="font" metaFont="system"/>
@@ -920,14 +920,14 @@ AAAAAAAAAAAAAAAAAAABPA
                         </textFieldCell>
                     </textField>
                     <scrollView focusRingType="none" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1b-a0-Qz0">
-                        <rect key="frame" x="20" y="30" width="213" height="385"/>
+                        <rect key="frame" x="-1" y="19" width="213" height="417"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" focusRingType="none" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="W2Z-QN-lyL">
-                            <rect key="frame" x="1" y="1" width="211" height="383"/>
+                            <rect key="frame" x="1" y="1" width="211" height="415"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" id="YUz-eh-kup">
-                                    <rect key="frame" x="0.0" y="0.0" width="211" height="383"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="211" height="415"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -973,12 +973,12 @@ AAAAAAAAAAAAAAAAAAABPA
                                 </tableView>
                             </subviews>
                         </clipView>
-                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fby-tz-G5H">
-                            <rect key="frame" x="1" y="368" width="211" height="16"/>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="fby-tz-G5H">
+                            <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="sUr-7J-gsW">
-                            <rect key="frame" x="-100" y="-100" width="15" height="102"/>
+                            <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
