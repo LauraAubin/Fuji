@@ -21,7 +21,7 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 | Visualize CPU usage across the whole system      |       March 20       |   [#20](https://github.com/LauraAubin/Fuji/issues/20)  | ☑️ |
 |  UI supports modifying NI    |  March 30  |   [#13](https://github.com/LauraAubin/Fuji/issues/13)  | ✅ |
 |  Track CPU logic and fluctuating patterns    |  April 6  |  [#26](https://github.com/LauraAubin/Fuji/issues/26)  | ✅ |
-|  CPU recommendations    | April 10  |  [#27](https://github.com/LauraAubin/Fuji/issues/27)  |  |
+|  CPU recommendations    | April 10  |  [#27](https://github.com/LauraAubin/Fuji/issues/27)  | ✅|
 
 ## Helpful pull requests:
 
