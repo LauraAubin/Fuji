@@ -70,7 +70,10 @@ float lastCPUReadings[2];
         [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (calculateSingleCPU) userInfo:nil repeats:YES];
         
         // initialize the CPU progress bar
-        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(550, 230, 80, 80);
+        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(248, 177, 120, 120);
+        
+        NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
+        _circleCPUPercentage.stringValue = formattedCPUValue;
         
         return 0;
     }
@@ -144,6 +147,7 @@ float lastCPUReadings[2];
     - (void)updateCpuDisplayText {
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
         _cpuRefreshValue.stringValue = formattedCPUValue;
+        _circleCPUPercentage.stringValue = formattedCPUValue;
         
         _selectedCPUProgressBarRefreshValue.doubleValue = CurrentlySelectedProcessCPUValue;
         
