@@ -34,6 +34,11 @@ extern bool processHasBeenConstant;
 @end
 
 @implementation NSRunningApplication (params)
+    - (NSString*)selectedName;
+    {
+        return self.localizedName;
+    }
+
     - (pid_t)selectedPID;
     {
         CurrentlySelectedProcessID = self.processIdentifier;

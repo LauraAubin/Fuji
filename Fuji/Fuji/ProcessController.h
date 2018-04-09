@@ -19,6 +19,7 @@
 @end
 
 @interface NSRunningApplication (params)
+    @property (readonly) NSString* selectedName;
     @property (readonly) pid_t selectedPID;
     @property (readonly) pid_t selectedNiceness;
 @end
