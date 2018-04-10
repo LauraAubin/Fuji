@@ -45,6 +45,8 @@ float lastCPUReadings[2];
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
 
         _increasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
+        _circlePriorityValue.doubleValue = [self getCurrentProcessPriority];
     }
 
     - (IBAction)decreaseSelectedNI:(id)sender {
@@ -56,21 +58,36 @@ float lastCPUReadings[2];
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
 
         _decreasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
+        _circlePriorityValue.doubleValue = [self getCurrentProcessPriority];
     }
 
     - (int)getCurrentProcessPriority; {
         return getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
     }
 
+    - (int)maxNicenessProgressValue {
+        return 19;
+    }
+
+    - (int)minNicenessProgressValue {
+        return -20;
+    }
+
 //----------------------------------------------------------------
 // ----------------------------- CPU -----------------------------
 //----------------------------------------------------------------
 
+    // this runs on initial program launch
     - (NSString *)selectedProcessCPU {
         [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (calculateSingleCPU) userInfo:nil repeats:YES];
         
-        // initialize the CPU progress bar
-        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(248, 334, 120, 120);
+        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(248, 350, 120, 120);
+        
+        _decreaseButton.frame = CGRectMake(420, 260, 85, 45);
+        _increaseButton.frame = CGRectMake(500, 260, 85, 45);
+        _nicenessProgressBar.frame = CGRectMake(445, 350, 120, 120);
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
         
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
         _circleCPUPercentage.stringValue = formattedCPUValue;
@@ -148,6 +165,7 @@ float lastCPUReadings[2];
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
         _cpuRefreshValue.stringValue = formattedCPUValue;
         _circleCPUPercentage.stringValue = formattedCPUValue;
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
         
         _selectedCPUProgressBarRefreshValue.doubleValue = CurrentlySelectedProcessCPUValue;
         
