@@ -13,6 +13,8 @@ Niceness modifies the scheduling priority of a given process which determines ho
 - Allow the user to modify the "niceness" of the selected process
 <br>
 
+**The gif below demonstrates how the application works. In the background, I was using Photoshop to spike the CPU usage.**
+
 <kbd>![Alt Text](https://github.com/LauraAubin/Fuji/blob/master/Demo/Fuji%20-%20April%2010%2C%202018.gif)</kbd><br>
 <br><sup>(Note: This was recorded with LICEcap which distorted some of the colours)</sup><br>
 
