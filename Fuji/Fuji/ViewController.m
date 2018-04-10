@@ -45,6 +45,8 @@ float lastCPUReadings[2];
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
 
         _increasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
+        _circlePriorityValue.doubleValue = [self getCurrentProcessPriority];
     }
 
     - (IBAction)decreaseSelectedNI:(id)sender {
@@ -56,24 +58,42 @@ float lastCPUReadings[2];
         NSString *currentProcessPriorityString = [NSString stringWithFormat:@"%d", [self getCurrentProcessPriority]];
 
         _decreasingProcessPriorityDisplay.stringValue = currentProcessPriorityString;
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
+        _circlePriorityValue.doubleValue = [self getCurrentProcessPriority];
     }
 
     - (int)getCurrentProcessPriority; {
         return getpriority(PRIO_PROCESS, CurrentlySelectedProcessID);
     }
 
+    - (int)maxNicenessProgressValue {
+        return 19;
+    }
+
+    - (int)minNicenessProgressValue {
+        return -20;
+    }
+
 //----------------------------------------------------------------
 // ----------------------------- CPU -----------------------------
 //----------------------------------------------------------------
 
+    // this runs on initial program launch
     - (NSString *)selectedProcessCPU {
         [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (calculateSingleCPU) userInfo:nil repeats:YES];
         
-        // initialize the CPU progress bar
-        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(248, 177, 120, 120);
+        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(248, 235, 120, 120);
+        
+        _decreaseButton.frame = CGRectMake(420, 140, 85, 45);
+        _increaseButton.frame = CGRectMake(500, 140, 85, 45);
+        _nicenessProgressBar.frame = CGRectMake(445, 235, 120, 120);
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
         
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
         _circleCPUPercentage.stringValue = formattedCPUValue;
+        
+        _nicenessRecommendationText.stringValue = @"";
+        _nicenessAdditionalRecommendationText.stringValue = @"";
         
         return 0;
     }
@@ -148,6 +168,7 @@ float lastCPUReadings[2];
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
         _cpuRefreshValue.stringValue = formattedCPUValue;
         _circleCPUPercentage.stringValue = formattedCPUValue;
+        _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
         
         _selectedCPUProgressBarRefreshValue.doubleValue = CurrentlySelectedProcessCPUValue;
         
@@ -174,7 +195,7 @@ float lastCPUReadings[2];
         
         if (CurrentlySelectedProcessCPUValue < 10){
             _nicenessRecommendationText.stringValue = @"This process has a low CPU usage";
-            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you lower it's priority";
+            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you increase it's niceness";
             
         } else if (CurrentlySelectedProcessCPUValue > 10 && CurrentlySelectedProcessCPUValue < 50){
             _nicenessRecommendationText.stringValue = @"This process is running smoothly";
@@ -182,7 +203,7 @@ float lastCPUReadings[2];
             
         } else if (CurrentlySelectedProcessCPUValue > 80){
             _nicenessRecommendationText.stringValue = @"This process has a high CPU usage";
-            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you increase it's priority";
+            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you decrease it's niceness";
             
         } else {
             _nicenessRecommendationText.stringValue = @"";

@@ -14,11 +14,19 @@
 #import "ViewController.h"
 
 @interface ViewController : NSViewController
+    // niceness
+    @property (strong) IBOutlet NSButton *increaseButton;
+    @property (strong) IBOutlet NSButton *decreaseButton;
+    @property (strong) IBOutlet NSProgressIndicator *nicenessProgressBar;
+    @property (strong) IBOutlet NSTextField *increasingProcessPriorityDisplay;
+    @property (strong) IBOutlet NSTextField *decreasingProcessPriorityDisplay;
+    @property (strong) IBOutlet NSTextField *circlePriorityValue;
+
     - (IBAction)increaseSelectedNI:(id)sender;
     - (IBAction)decreaseSelectedNI:(id)sender;
 
-    @property (strong) IBOutlet NSTextField *increasingProcessPriorityDisplay;
-    @property (strong) IBOutlet NSTextField *decreasingProcessPriorityDisplay;
+    - (int)maxNicenessProgressValue;
+    - (int)minNicenessProgressValue;
 
     // individual process' CPU value
     @property (readonly) NSString *selectedProcessCPU;
