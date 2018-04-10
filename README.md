@@ -2,7 +2,7 @@
 
 ## What does this application do?
 
-Niceness modifies the scheduling priority of a given process which determines how much CPU time it receives. When you `increase` the niceness, it's priority `decreases`. The same goes for when you `decrease` the niceness, the priority will `increase`. This is helpful in scenarios such as giving a process more priority if it needs to perform faster. This is also helpful if you want to limit a process that would otherwise take up uneccessary CPU usage.
+Niceness modifies the scheduling priority of a given process which determines how much CPU time it receives. When you `increase` the niceness, it's priority `decreases`. The same goes for when you `decrease` the niceness, the priority will `increase`. This is helpful in scenarios such as giving a process more priority if it needs to perform faster. This is also helpful if you want to limit a process that would otherwise take up unnecessary CPU usage.
 
 <br>
 
@@ -20,11 +20,11 @@ Niceness modifies the scheduling priority of a given process which determines ho
 
 ## How can I run this application myself?
 
-Make sure that you computer has the same (or similar) stats listed in the development section below. This application was not tested on other computers.
+Make sure that you computer has the same (or similar) stats listed in the development section below. Note that this application was not tested on other computers, and does not guarantee that it will work on yours.
 
 1. Download [`Fuji.app`](https://github.com/LauraAubin/Fuji/tree/master/Fuji%202018-04-10%2015-40-21/Fuji.app).
 
-2. You need to run this file as the root user, so in a terminal type: `sudo Fuji.app/Contents/MacOS/Fuji`. This should launch the application automatically. The reason for this is explained [here](https://github.com/LauraAubin/Fuji/pull/18)
+2. You need to run this file as the root user, so in a terminal type: `sudo Fuji.app/Contents/MacOS/Fuji`. This should launch the application automatically. The reason for this is explained [here.](https://github.com/LauraAubin/Fuji/pull/18)
 
 The application runs on a 5 second timer, so you'll need to wait a few seconds for data to update.
 
@@ -72,10 +72,10 @@ See the [wiki](https://github.com/LauraAubin/Fuji/wiki) for a list of active sys
 
 This project was part of my COMP3000 Operating Systems class at Carleton. The project outline stated that we could "create anything that improves some aspect of an operating system."
 
-**Some silly goofs: 🤪**
+🤪**Some silly goofs:**
 
 As the project deadline approached, some corners needed to be cut in favour of finishing the application on time. These are some of them:
 
 - The circles are actually made out of "O" letters, with increased boldness and font size
-- The "cards" are actually just enlarged text fields.
+- The "cards" are actually just enlarged text fields
 - You can freely resize the window, revealing a lot of empty space and a few unused text fields 🙈
