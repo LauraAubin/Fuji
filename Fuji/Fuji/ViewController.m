@@ -82,15 +82,18 @@ float lastCPUReadings[2];
     - (NSString *)selectedProcessCPU {
         [NSTimer scheduledTimerWithTimeInterval:updateTimerIntervalSeconds target:self selector:@selector (calculateSingleCPU) userInfo:nil repeats:YES];
         
-        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(248, 350, 120, 120);
+        _selectedCPUProgressBarRefreshValue.frame = CGRectMake(248, 235, 120, 120);
         
-        _decreaseButton.frame = CGRectMake(420, 260, 85, 45);
-        _increaseButton.frame = CGRectMake(500, 260, 85, 45);
-        _nicenessProgressBar.frame = CGRectMake(445, 350, 120, 120);
+        _decreaseButton.frame = CGRectMake(420, 140, 85, 45);
+        _increaseButton.frame = CGRectMake(500, 140, 85, 45);
+        _nicenessProgressBar.frame = CGRectMake(445, 235, 120, 120);
         _nicenessProgressBar.doubleValue = [self getCurrentProcessPriority];
         
         NSString *formattedCPUValue = [NSString stringWithFormat:@"%.01f%%", CurrentlySelectedProcessCPUValue];
         _circleCPUPercentage.stringValue = formattedCPUValue;
+        
+        _nicenessRecommendationText.stringValue = @"";
+        _nicenessAdditionalRecommendationText.stringValue = @"";
         
         return 0;
     }
@@ -192,7 +195,7 @@ float lastCPUReadings[2];
         
         if (CurrentlySelectedProcessCPUValue < 10){
             _nicenessRecommendationText.stringValue = @"This process has a low CPU usage";
-            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you lower it's priority";
+            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you increase it's niceness";
             
         } else if (CurrentlySelectedProcessCPUValue > 10 && CurrentlySelectedProcessCPUValue < 50){
             _nicenessRecommendationText.stringValue = @"This process is running smoothly";
@@ -200,7 +203,7 @@ float lastCPUReadings[2];
             
         } else if (CurrentlySelectedProcessCPUValue > 80){
             _nicenessRecommendationText.stringValue = @"This process has a high CPU usage";
-            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you increase it's priority";
+            _nicenessAdditionalRecommendationText.stringValue = @"It is recommended that you decrease it's niceness";
             
         } else {
             _nicenessRecommendationText.stringValue = @"";
