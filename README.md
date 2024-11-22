@@ -2,7 +2,7 @@
 
 ## What does this application do?
 
-Niceness modifies the scheduling priority of a given process which determines how much CPU time it receives. When you `increase` the niceness, it's priority `decreases`. The same goes for when you `decrease` the niceness, the priority will `increase`. This is helpful in scenarios such as giving a process more priority if it needs to perform faster. This is also helpful if you want to limit a process that would otherwise take up unnecessary CPU usage.
+[`niceness`](https://en.wikipedia.org/wiki/Nice_(Unix)) (yes, this is a real thing) modifies the scheduling priority of a given process which determines how much CPU time it receives. When you **increase** the `niceness`, it's priority **decreases**. The same goes for when you **decrease** the `niceness`, the priority will **increase**. This is helpful in scenarios such as giving a process more priority if it needs to perform faster. This is also helpful if you want to limit a process that would otherwise take up unnecessary CPU usage.
 
 <br>
 
@@ -10,7 +10,7 @@ Niceness modifies the scheduling priority of a given process which determines ho
 
 - See how much CPU usage the selected process is using
 - Determine if the process is "stable", "unstable" is defined as rapid fluctuations in CPU usage
-- Allow the user to modify the "niceness" of the selected process
+- Allow the user to modify the `niceness` of the selected process
 <br>
 
 **The gif below demonstrates how the application works. In the background, I was using Photoshop to spike the CPU usage.**
